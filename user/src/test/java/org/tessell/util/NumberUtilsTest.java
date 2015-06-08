@@ -1,10 +1,5 @@
 package org.tessell.util;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
 
 public class NumberUtilsTest {
 
@@ -44,6 +39,9 @@ public class NumberUtilsTest {
     assertThat(NumberUtils.parse("1.335", 2), is(1.34));
     assertThat(NumberUtils.parse("-1.33", 2), is(-1.33));
     assertThat(NumberUtils.parse("1,333", 2), is(1333.0));
+    assertThat(NumberUtils.parse("$1,333", 2), is(1333.0));
+    assertThat(NumberUtils.parse("HK$1,333", 2), is(1333.0));
+    assertThat(NumberUtils.parse("€1,333", 2), is(1333.0));
     assertThat(NumberUtils.parse("-1,333", 2), is(-1333.0));
     assertNumberFormatException("");
     assertNumberFormatException(".");

@@ -5,7 +5,7 @@ public class NumberUtils {
 
   /** @return {@code value} parsed as a double, and rounded to {@code decimalPlaces} */
   public static double parse(String value, int decimalPlaces) throws NumberFormatException {
-    value = value.replaceAll("[\\$,]", "");
+    value = value.replaceAll("[\\$€£₹¥,a-zA-Z]", "");
     // Trim off insignificant digits by, when decimalPlaces=2, shifting * 100, round, / 100.
     double adjust = Math.pow(10, decimalPlaces);
     double parsed = Double.parseDouble(value);
